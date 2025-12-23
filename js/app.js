@@ -44,31 +44,55 @@ document.addEventListener('DOMContentLoaded', () => {
     const isAuthenticated = window.authManager && window.authManager.isAuthenticated();
     console.log('Auth status:', isAuthenticated);
     
+    // Always hide splash screen after max 2 seconds to prevent infinite loading
+    const hideSplashScreen = () => {
+        const splashScreen = document.getElementById('splash-screen');
+        if (splashScreen) {
+            splashScreen.classList.add('fade-out');
+            setTimeout(() => {
+                splashScreen.style.visibility = 'hidden';
+                const appContainer = document.getElementById('app-container');
+                if (appContainer) {
+                    appContainer.classList.remove('hidden');
+                    appContainer.classList.add('zoom-in');
+                }
+            }, 300);
+        }
+    };
+    
     if (isAuthenticated) {
-        // Load user data and initialize app
-        window.initializeAppWithUser().then(() => {
+        // Load user data and initialize app with timeout
+        Promise.race([
+            window.initializeAppWithUser(),
+            new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), 3000))
+        ]).then(() => {
             console.log('✓ User data loaded');
             loadScreen(appState.currentScreen);
+        }).catch((error) => {
+            console.warn('Failed to load user data, continuing anyway:', error);
+            loadScreen(appState.currentScreen);
+        }).finally(() => {
+            hideSplashScreen();
+            if (!isAuthenticated) {
+                setTimeout(() => window.showLoginModal(), 500);
+            }
         });
     } else {
         // Load screen without user data (will show empty states)
         console.log('Loading screen without auth');
         loadScreen(appState.currentScreen);
+        hideSplashScreen();
+        setTimeout(() => {
+            window.showLoginModal();
+        }, 500);
     }
     
-    // Show app content with professional animations
+    // Failsafe: Always hide splash screen after 2 seconds maximum
     setTimeout(() => {
-        // Fade out splash screen with animation
         const splashScreen = document.getElementById('splash-screen');
-        splashScreen.classList.add('fade-out');
-        
-        // After splash animation completes, show app with zoom-in effect
-        setTimeout(() => {
-            splashScreen.style.visibility = 'hidden';
-            document.getElementById('app-container').classList.remove('hidden');
-            document.getElementById('app-container').classList.add('zoom-in');
-            
-            // Show login modal if not authenticated
+        if (splashScreen && splashScreen.style.visibility !== 'hidden') {
+            console.log('⚠️ Failsafe: Forcing splash screen to hide');
+            hideSplashScreen();
             if (!isAuthenticated) {
                 setTimeout(() => {
                     window.showLoginModal();
