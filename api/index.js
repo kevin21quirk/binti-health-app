@@ -48,7 +48,8 @@ app.use((err, req, res, next) => {
     });
 });
 
-if (process.env.NODE_ENV !== 'production') {
+// Start server only when not running as Vercel serverless function
+if (require.main === module) {
     app.listen(PORT, () => {
         console.log(`Binti Health API running on port ${PORT}`);
     });
