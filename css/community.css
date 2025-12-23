@@ -1,0 +1,423 @@
+/**
+ * Binti Health App
+ * Community Platform Styles
+ */
+
+/* Community container */
+.community-container {
+    padding: 8px 0;
+}
+
+/* Community card styles */
+.community-card {
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.community-welcome {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background: linear-gradient(to right, #f3e7ff, #eef1f5);
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.platform-logo {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+
+.community-logo {
+    width: 100%;
+    height: auto;
+}
+
+.platform-info h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    color: var(--primary-color);
+}
+
+.platform-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Community stats */
+.community-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.community-actions {
+    text-align: center;
+}
+
+/* Social connections */
+.social-card {
+    margin-bottom: 20px;
+}
+
+.social-intro {
+    margin: 0 0 16px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.social-connections {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.social-connection-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-connection-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    color: white;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.social-icon.facebook {
+    background-color: #1877f2;
+}
+
+.social-icon.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.social-icon.tiktok {
+    background-color: #000000;
+}
+
+.social-icon.twitter {
+    background-color: #1da1f2;
+}
+
+.social-icon.connected {
+    animation: pulse-success 1s;
+}
+
+@keyframes pulse-success {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.social-info {
+    flex: 1;
+}
+
+.social-info h4 {
+    margin: 0 0 4px 0;
+    font-size: 14px;
+}
+
+.social-info p {
+    margin: 0;
+    font-size: 12px;
+    color: #666;
+}
+
+.social-connection-item .btn-small {
+    font-size: 12px;
+    padding: 4px 8px;
+}
+
+.social-privacy-note {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-top: 16px;
+}
+
+.social-privacy-note i {
+    margin-right: 8px;
+    color: #718096;
+}
+
+.social-privacy-note p {
+    margin: 0;
+    font-size: 12px;
+    color: #718096;
+}
+
+/* Trending topics */
+.trending-card {
+    margin-bottom: 20px;
+}
+
+.topic-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.topic-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.topic-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.topic-emoji {
+    width: 40px;
+    height: 40px;
+    background-color: #f7f7f7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.topic-info {
+    flex: 1;
+}
+
+.topic-info h4 {
+    margin: 0 0 4px 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.topic-meta {
+    display: flex;
+    gap: 12px;
+}
+
+.topic-meta span {
+    font-size: 12px;
+    color: #666;
+}
+
+.topic-meta i {
+    margin-right: 4px;
+}
+
+.topic-arrow {
+    color: #ccc;
+}
+
+.view-all-btn {
+    width: 100%;
+}
+
+/* Modal styles for community features */
+.community-modal,
+.social-auth-modal,
+.topic-modal,
+.all-topics-modal {
+    text-align: center;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    margin: 20px auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.small-text {
+    font-size: 12px;
+    color: #777;
+    font-style: italic;
+}
+
+.social-auth-content {
+    text-align: left;
+    padding: 16px;
+}
+
+.social-auth-content .social-icon {
+    margin: 0 auto 16px auto;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+}
+
+.social-auth-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0;
+}
+
+.social-auth-content li {
+    padding: 6px 0;
+    display: flex;
+    align-items: center;
+}
+
+.social-auth-content li i {
+    color: var(--primary-color);
+    margin-right: 8px;
+}
+
+.auth-privacy {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin: 16px 0;
+}
+
+.auth-privacy i {
+    margin-right: 8px;
+    color: #718096;
+}
+
+.auth-privacy p {
+    margin: 0;
+    font-size: 12px;
+    color: #718096;
+}
+
+.auth-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.auth-actions button {
+    flex: 1;
+}
+
+.topic-action-buttons {
+    display: flex;
+    gap: 8px;
+    margin: 16px 0;
+    justify-content: center;
+}
+
+.topics-filter {
+    display: flex;
+    gap: 8px;
+    margin: 16px 0;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+.filter-btn {
+    background-color: #f1f1f1;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.placeholder-text {
+    padding: 16px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    font-style: italic;
+    color: #666;
+}
+
+/* Toast notifications */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 20px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 14px;
+}
+
+.toast.show {
+    opacity: 1;
+}
+
+.toast.success {
+    background-color: rgba(56, 161, 105, 0.9);
+}
+
+.toast.error {
+    background-color: rgba(229, 62, 62, 0.9);
+}
+
+.btn-success {
+    background-color: #48bb78 !important;
+    color: white !important;
+    border-color: #48bb78 !important;
+}

@@ -1,0 +1,424 @@
+/**
+ * Binti International Health App
+ * Advanced Animation Styles
+ */
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideOutRight {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideOutLeft {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes zoomOut {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(0); opacity: 0; }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-20px); }
+  60% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes spinIn {
+  from { transform: rotate(-360deg) scale(0); opacity: 0; }
+  to { transform: rotate(0) scale(1); opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.3s ease-in forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s ease-out forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.3s ease-out forwards;
+}
+
+.slide-out-right {
+  animation: slideOutRight 0.3s ease-in forwards;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.3s ease-out forwards;
+}
+
+.slide-out-left {
+  animation: slideOutLeft 0.3s ease-in forwards;
+}
+
+.zoom-in {
+  animation: zoomIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.zoom-out {
+  animation: zoomOut 0.3s ease-in forwards;
+}
+
+.bounce {
+  animation: bounce 1s ease infinite;
+}
+
+.pulse {
+  animation: pulse 1.5s ease infinite;
+}
+
+.spin-in {
+  animation: spinIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Enhanced 3D Splash Screen Animations */
+@keyframes logo3DSpin {
+  0% {
+    transform: perspective(800px) rotateY(0deg) scale(0.6);
+    opacity: 0.2;
+  }
+  50% {
+    transform: perspective(800px) rotateY(180deg) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: perspective(800px) rotateY(360deg) scale(1);
+    opacity: 1;
+  }
+}
+
+#splash-screen .splash-logo {
+  animation: logo3DSpin 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+}
+
+#splash-screen h1 {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.8s ease-out 0.5s forwards, 
+             slideInRight 0.8s ease-out 0.5s forwards;
+}
+
+#splash-screen .loading-indicator {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out 1s forwards;
+}
+
+/* Enhanced Side Drawer Animation */
+.side-drawer {
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.side-drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-item {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.side-drawer.open .drawer-item {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Apply staggered animation to drawer items */
+.side-drawer.open .drawer-item:nth-child(1) { transition-delay: 0.1s; }
+.side-drawer.open .drawer-item:nth-child(2) { transition-delay: 0.15s; }
+.side-drawer.open .drawer-item:nth-child(3) { transition-delay: 0.2s; }
+.side-drawer.open .drawer-item:nth-child(4) { transition-delay: 0.25s; }
+.side-drawer.open .drawer-item:nth-child(5) { transition-delay: 0.3s; }
+.side-drawer.open .drawer-item:nth-child(6) { transition-delay: 0.35s; }
+.side-drawer.open .drawer-item:nth-child(7) { transition-delay: 0.4s; }
+.side-drawer.open .drawer-item:nth-child(8) { transition-delay: 0.45s; }
+.side-drawer.open .drawer-item:nth-child(9) { transition-delay: 0.5s; }
+
+/* Enhanced Right Panel Animation */
+.right-panel {
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.right-panel.open {
+  transform: translateX(0);
+}
+
+.notification {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.right-panel.open .notification {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Apply staggered animation to notifications */
+.right-panel.open .notification:nth-child(1) { transition-delay: 0.1s; }
+.right-panel.open .notification:nth-child(2) { transition-delay: 0.2s; }
+.right-panel.open .notification:nth-child(3) { transition-delay: 0.3s; }
+.right-panel.open .notification:nth-child(4) { transition-delay: 0.4s; }
+
+/* Enhanced Screen Transitions */
+.screen {
+  display: none;
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.screen.active {
+  display: block;
+  opacity: 1;
+  transform: translateX(0);
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Stagger animations for elements within screens */
+.screen.active .card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s ease-out forwards, 
+             slideInRight 0.5s ease-out forwards;
+}
+
+.screen.active .card:nth-child(1) { animation-delay: 0.1s; }
+.screen.active .card:nth-child(2) { animation-delay: 0.2s; }
+.screen.active .card:nth-child(3) { animation-delay: 0.3s; }
+.screen.active .card:nth-child(4) { animation-delay: 0.4s; }
+.screen.active .card:nth-child(5) { animation-delay: 0.5s; }
+
+/* Enhanced Modal Animation */
+#modal-container {
+  transition: background-color 0.3s ease-out;
+}
+
+#modal-container:not(.modal-hidden) {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#modal-content {
+  transform: scale(0.8);
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              opacity 0.3s ease-out;
+}
+
+#modal-container:not(.modal-hidden) #modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Enhanced Bottom Navigation Animation */
+#bottom-nav .nav-item {
+  transition: transform 0.2s ease-out, color 0.2s ease-out;
+}
+
+#bottom-nav .nav-item.active {
+  transform: translateY(-5px);
+}
+
+#bottom-nav .nav-item i {
+  transition: transform 0.2s ease-out;
+}
+
+#bottom-nav .nav-item:hover i {
+  transform: scale(1.2);
+}
+
+/* Enhanced FAB Animation */
+#fab-button {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              background-color 0.3s ease-out;
+}
+
+#fab-button:hover {
+  transform: scale(1.1) rotate(90deg);
+}
+
+#fab-button:active {
+  transform: scale(0.9);
+}
+
+/* Enhanced UI Loading States */
+.shimmer {
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+  background-size: 1000px 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+/* Card entrance animations */
+.card {
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Button hover animations */
+.btn {
+  transition: transform 0.2s ease-out, background-color 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Icon animations */
+.pulse-icon {
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.bounce-icon {
+  animation: bounce 1s infinite ease-in-out;
+}
+
+/* Logo zoom animation */
+.logo-container {
+  overflow: hidden;
+}
+
+.logo-container img {
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-container:hover img {
+  transform: scale(1.1);
+}
+
+/* Special animation for smart pad connection */
+.device-connection-animation .signal-wave {
+  border: 2px solid #8A2BE2;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.device-connection-animation.scanning .signal-wave:nth-child(1) {
+  width: 20px;
+  height: 20px;
+  animation: pulse 2s infinite ease-out 0s;
+}
+
+.device-connection-animation.scanning .signal-wave:nth-child(2) {
+  width: 40px;
+  height: 40px;
+  animation: pulse 2s infinite ease-out 0.3s;
+}
+
+.device-connection-animation.scanning .signal-wave:nth-child(3) {
+  width: 60px;
+  height: 60px;
+  animation: pulse 2s infinite ease-out 0.6s;
+}
+
+/* Enhanced toast notifications */
+.toast {
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              opacity 0.3s ease-out;
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Page transition animations */
+.page-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #8A2BE2;
+  transform: translateY(100%);
+  z-index: 9999;
+}
+
+.page-transition-overlay.show {
+  animation: slideInUp 0.3s ease-out forwards;
+}
+
+.page-transition-overlay.hide {
+  animation: slideOutDown 0.3s ease-out forwards;
+}
+
+@keyframes slideInUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes slideOutDown {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100%); }
+}
+
+/* Screen-specific animations */
+#dashboard .cycle-overview {
+  animation-delay: 0.1s;
+}
+
+#dashboard .daily-insights {
+  animation-delay: 0.2s;
+}
+
+#dashboard .quick-actions {
+  animation-delay: 0.3s;
+}

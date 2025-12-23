@@ -1,0 +1,252 @@
+/**
+ * Binti Health App
+ * Pain Journal & Remedy Recommendations - Enhanced UI
+ */
+
+/* Remedy Recommendations Enhanced Styling */
+.remedies-container {
+  margin-bottom: 24px;
+}
+
+.remedy-card {
+  overflow: visible;
+}
+
+.remedy-filters {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+  overflow-x: auto;
+  padding: 4px 0;
+}
+
+.filter-pill {
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: rgba(138, 43, 226, 0.1);
+  color: var(--deep-purple);
+  border: none;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.filter-pill.active {
+  background: var(--primary-gradient);
+  color: white;
+  box-shadow: var(--button-shadow);
+}
+
+.remedy-item {
+  display: flex;
+  position: relative;
+  padding: 16px;
+  background: white;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.remedy-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.remedy-badge {
+  position: absolute;
+  top: -10px;
+  left: 16px;
+  background: var(--secondary-gradient);
+  color: white;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(255, 0, 69, 0.3);
+  z-index: 1;
+}
+
+.remedy-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--primary-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+
+.warm-bath {
+  background: linear-gradient(135deg, #00A4BD, #0077B6);
+}
+
+.ginger-tea {
+  background: linear-gradient(135deg, #FF8C00, #FF5722);
+}
+
+.exercise {
+  background: linear-gradient(135deg, #4CAF50, #2E7D32);
+}
+
+.remedy-info {
+  flex-grow: 1;
+}
+
+.remedy-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.remedy-title {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--dark-gray);
+}
+
+.remedy-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.effectiveness-bar {
+  width: 80px;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.effectiveness-fill {
+  height: 100%;
+  background: var(--success-color);
+  border-radius: 4px;
+  transition: width 1.2s cubic-bezier(0.1, 0.8, 0.2, 1);
+}
+
+.effectiveness-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--success-color);
+}
+
+.remedy-description {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--medium-gray);
+  margin-bottom: 10px;
+}
+
+.remedy-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  background: rgba(138, 43, 226, 0.08);
+  color: var(--deep-purple);
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.remedy-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 16px;
+}
+
+.btn-icon-small {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(138, 43, 226, 0.1);
+  color: var(--deep-purple);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-icon-small:hover {
+  background: rgba(138, 43, 226, 0.2);
+  transform: scale(1.1);
+}
+
+.btn-bookmark.active i {
+  color: var(--dark-red);
+}
+
+.remedy-insights {
+  background: rgba(33, 150, 243, 0.08);
+  border-radius: var(--border-radius-md);
+  padding: 16px;
+  margin-top: 20px;
+  border-left: 4px solid var(--info-color);
+}
+
+.remedy-insights h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--info-color);
+  margin-bottom: 8px;
+}
+
+.remedy-insights p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--medium-gray);
+  margin-bottom: 10px;
+}
+
+.read-more {
+  text-align: right;
+}
+
+.btn-text {
+  background: transparent;
+  border: none;
+  color: var(--deep-purple);
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.btn-text:hover {
+  color: var(--light-purple);
+  transform: translateX(3px);
+}
+
+/* Animations for remedy recommendations */
+.slide-in-left {
+  animation: slideInLeft 0.5s forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

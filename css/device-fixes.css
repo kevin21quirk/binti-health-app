@@ -1,0 +1,207 @@
+/* Device Connection Screen - Fix Overlapping Issues */
+
+/* Fix stat icons overlapping with text */
+.device-stats {
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.device-stats .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 100px;
+    padding: 15px;
+}
+
+.device-stats .stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #8A2BE2, #9D4EDD);
+    color: white;
+    font-size: 24px;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+}
+
+.device-stats .stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2D3748;
+    margin: 5px 0;
+}
+
+.device-stats .stat-label {
+    font-size: 14px;
+    color: #718096;
+    text-align: center;
+}
+
+/* Fix active indicator overlapping text in leak prevention */
+.active-indicator {
+    background-color: #48bb78;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+.alert-type {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.alert-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+    width: 50px;
+    text-align: center;
+}
+
+.alert-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.alert-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    color: #2D3748;
+}
+
+.alert-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #718096;
+    line-height: 1.4;
+}
+
+/* Ensure proper spacing for device connection elements */
+.connection-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 30px 20px;
+    background: white;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.connection-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F7FAFC;
+    color: #CBD5E0;
+    font-size: 40px;
+}
+
+.connection-icon.connected {
+    background: linear-gradient(135deg, #48bb78, #38a169);
+    color: white;
+}
+
+.connection-text {
+    text-align: center;
+}
+
+.connection-text h3 {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    color: #2D3748;
+}
+
+.connection-text p {
+    margin: 0;
+    font-size: 14px;
+    color: #718096;
+}
+
+/* Fix test tube icon and other sensor icons */
+.sensor-metric-item {
+    margin-bottom: 15px;
+}
+
+.metric-label {
+    font-size: 14px;
+    color: #718096;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.metric-bar {
+    height: 8px;
+    background: #E2E8F0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.metric-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #8A2BE2, #9D4EDD);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.metric-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2D3748;
+}
+
+/* Prevent icon overlaps in health insights */
+.sensor-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #8A2BE2, #9D4EDD);
+    color: white;
+    margin: 0 auto 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.sensor-value {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.sensor-label {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.sensor-status {
+    font-size: 12px;
+    margin-top: 5px;
+    opacity: 0.8;
+}

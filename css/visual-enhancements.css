@@ -1,0 +1,441 @@
+/**
+ * Binti Health App
+ * Visual Enhancements and Emoji Support
+ */
+
+/* Header Logo Styles */
+.header-logo {
+  height: 32px;
+  width: auto;
+  margin-left: 10px;
+  margin-right: 6px;
+  vertical-align: middle;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
+  animation: logo-pulse 2s infinite;
+  transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+  transform: scale(1.1);
+}
+
+@keyframes logo-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Ripple effect animation */
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Shake animation */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+/* Floating emoji animation */
+.floating-emoji {
+  position: absolute;
+  font-size: 2rem;
+  animation: floatUp 2s ease-out forwards;
+  pointer-events: none;
+  z-index: 1000;
+  user-select: none;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 0;
+  }
+  20% {
+    transform: translateY(-20px) scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Confetti animation */
+.confetti {
+  position: absolute;
+  top: -10px;
+  border-radius: 0;
+  animation: fall linear forwards;
+  transform: rotate(0);
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(720deg);
+  }
+}
+
+/* Enhanced emoji badges */
+.emoji-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 4px 8px;
+  margin-right: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.emoji-badge:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.emoji-badge span {
+  font-size: 14px;
+  margin-left: 4px;
+}
+
+/* Enhanced tags with emojis */
+.tag-with-emoji {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(138, 43, 226, 0.1);
+  border-radius: 16px;
+  padding: 4px 10px;
+  margin: 0 4px 4px 0;
+  color: var(--deep-purple);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.tag-with-emoji:hover {
+  background: rgba(138, 43, 226, 0.2);
+  transform: translateY(-2px);
+}
+
+.tag-with-emoji .emoji {
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+/* Live notification indicator */
+.live-indicator {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  color: var(--success-color);
+  font-weight: 500;
+}
+
+.live-indicator::before {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--success-color);
+  margin-right: 6px;
+  animation: pulse 1.5s infinite;
+}
+
+/* Enhanced tooltips with emojis */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 150px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 12px;
+  position: absolute;
+  z-index: 10000 !important;
+  bottom: 130%; /* Position tooltip well above button */
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  font-size: 13px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+/* Card Actions Special Tooltip Positioning */
+.card-actions {
+  position: relative;
+  z-index: 1001;
+}
+
+/* Right-most button tooltip fix */
+.card-actions .tooltip:last-child .tooltiptext {
+  right: 0;
+  left: auto;
+  transform: translateX(0) scale(0.8);
+}
+
+.card-actions .tooltip:last-child:hover .tooltiptext {
+  transform: translateX(0) scale(1);
+}
+
+/* Second from right button tooltip fix */
+.card-actions .tooltip:nth-last-child(2) .tooltiptext {
+  right: -25px;
+  left: auto;
+  transform: translateX(0) scale(0.8);
+}
+
+.card-actions .tooltip:nth-last-child(2):hover .tooltiptext {
+  transform: translateX(0) scale(1);
+}
+
+/* Arrow positioning for all tooltips */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+/* Arrow position for right-aligned tooltips */
+.card-actions .tooltip:last-child .tooltiptext::after,
+.card-actions .tooltip:nth-last-child(2) .tooltiptext::after {
+  right: 15px;
+  left: auto;
+  margin-left: 0;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+/* Ensure absolutely positioned tooltips don't get cut off */
+.card, .card-header, .card-actions, .card-content {
+  overflow: visible;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+/* Force tooltips to always be on top of everything */
+.tooltip {
+  position: relative;
+}
+
+/* Create a higher stacking context for all tooltips */
+.tooltip .tooltiptext {
+  position: absolute;
+  z-index: 10000 !important;
+}
+
+/* Enhanced 3D card effect */
+.card-3d {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Custom AI insights styles with emoji */
+.ai-insight {
+  position: relative;
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.05), rgba(138, 43, 226, 0.1));
+  border-radius: var(--border-radius-md);
+  padding: 16px 16px 16px 50px;
+  margin-bottom: 24px;
+  border-left: 3px solid var(--deep-purple);
+}
+
+.ai-insight::before {
+  content: '🤖';
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  font-size: 22px;
+}
+
+.ai-insight h4 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--deep-purple);
+}
+
+.ai-insight p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--dark-gray);
+}
+
+/* Interactive emoji reactions */
+.emoji-reactions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.emoji-reaction-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: var(--border-radius-md);
+  transition: all 0.2s ease;
+}
+
+.emoji-reaction-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.emoji-reaction-btn.selected {
+  background: rgba(138, 43, 226, 0.1);
+}
+
+.emoji-reaction-btn .emoji {
+  font-size: 18px;
+  margin-bottom: 4px;
+  transition: transform 0.2s ease;
+}
+
+.emoji-reaction-btn:hover .emoji {
+  transform: scale(1.2);
+}
+
+.emoji-reaction-btn .count {
+  font-size: 12px;
+  color: var(--medium-gray);
+}
+
+/* Interactive body map markers with emojis */
+.body-map-marker {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.body-map-marker:hover {
+  transform: scale(1.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.body-map-marker.severe {
+  background: rgba(255, 0, 0, 0.8);
+}
+
+.body-map-marker.moderate {
+  background: rgba(255, 165, 0, 0.7);
+}
+
+.body-map-marker.mild {
+  background: rgba(255, 255, 0, 0.7);
+}
+
+/* Interactive mood selector */
+.mood-selector {
+  display: flex;
+  gap: 12px;
+  margin: 16px 0;
+  justify-content: center;
+}
+
+.mood-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.mood-option:hover {
+  transform: scale(1.1);
+}
+
+.mood-option.selected {
+  transform: scale(1.2);
+}
+
+.mood-option .emoji {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.mood-option .label {
+  font-size: 12px;
+  color: var(--medium-gray);
+}
+
+/* Enhanced icon badges */
+.icon-badge {
+  position: relative;
+  display: inline-block;
+}
+
+.icon-badge .badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--error-color);
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,314 @@
+/**
+ * Binti Health App
+ * Pain Journal Entries - Advanced UI Components
+ */
+
+/* Pain Journal Styling */
+.pain-journal-container {
+  margin-bottom: 24px;
+}
+
+.journal-card {
+  background: #fff;
+}
+
+.journal-insights {
+  display: flex;
+  align-items: flex-start;
+  background: rgba(255, 193, 7, 0.1);
+  border-radius: var(--border-radius-md);
+  padding: 16px;
+  margin-bottom: 20px;
+  border-left: 4px solid var(--warning-color);
+}
+
+.insight-icon {
+  margin-right: 16px;
+}
+
+.insight-icon i {
+  font-size: 24px;
+  color: var(--warning-color);
+}
+
+.insight-content h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dark-gray);
+  margin-bottom: 6px;
+}
+
+.insight-content p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--medium-gray);
+  margin: 0;
+}
+
+.journal-timeline {
+  margin-bottom: 24px;
+  background: white;
+  border-radius: var(--border-radius-md);
+  padding: 16px;
+  box-shadow: var(--inset-shadow);
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.timeline-header h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--deep-purple);
+  margin: 0;
+}
+
+.timeline-legend {
+  display: flex;
+  gap: 16px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.legend-color.pain {
+  background: var(--dark-red);
+}
+
+.legend-color.mood {
+  background: var(--info-color);
+}
+
+.timeline-chart {
+  height: 120px;
+  position: relative;
+}
+
+.chart-lines {
+  position: relative;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.pain-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cpath d='M0,20 Q25,5 50,25 T100,15 T150,30 T200,10 T250,25 T300,20' stroke='%23FF0045' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.pain-line.animate {
+  opacity: 1;
+}
+
+.mood-line {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cpath d='M0,20 Q25,30 50,15 T100,25 T150,10 T200,20 T250,15 T300,25' stroke='%232196F3' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1s ease 0.5s;
+}
+
+.mood-line.animate {
+  opacity: 1;
+}
+
+.chart-labels {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chart-labels span {
+  font-size: 12px;
+  color: var(--medium-gray);
+}
+
+.journal-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.journal-entry {
+  background: white;
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.journal-entry.expanded {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.journal-entry .entry-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: rgba(138, 43, 226, 0.05);
+}
+
+.entry-date-time {
+  display: flex;
+  flex-direction: column;
+}
+
+.entry-day {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--dark-gray);
+}
+
+.entry-time {
+  font-size: 12px;
+  color: var(--medium-gray);
+}
+
+.entry-indicators {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pain-indicator, .mood-indicator {
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pain-indicator {
+  color: var(--dark-gray);
+}
+
+.pain-indicator[data-level="7"],
+.pain-indicator[data-level="8"],
+.pain-indicator[data-level="9"],
+.pain-indicator[data-level="10"],
+.pain-indicator.severe {
+  color: var(--error-color);
+}
+
+.pain-indicator[data-level="4"],
+.pain-indicator[data-level="5"],
+.pain-indicator[data-level="6"],
+.pain-indicator.moderate {
+  color: var(--warning-color);
+}
+
+.mood-indicator {
+  color: var(--medium-gray);
+}
+
+.mood-indicator[data-mood="happy"],
+.mood-indicator.positive {
+  color: var(--success-color);
+}
+
+.mood-indicator[data-mood="sad"],
+.mood-indicator.negative {
+  color: var(--info-color);
+}
+
+.entry-content {
+  padding: 16px;
+}
+
+.entry-location {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--dark-gray);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.entry-notes {
+  margin-bottom: 12px;
+}
+
+.entry-notes p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--medium-gray);
+  margin: 0;
+}
+
+.entry-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.entry-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 0 16px 16px;
+}
+
+.journal-actions {
+  margin-top: 8px;
+}
+
+/* Animations for pain journal */
+.pulse-soft {
+  animation: pulseSoft 2s infinite;
+}
+
+@keyframes pulseSoft {
+  0% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+}
+
+.scale-in {
+  animation: scaleIn 0.4s forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

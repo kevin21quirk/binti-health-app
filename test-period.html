@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Period Tracking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .calendar-container { max-width: 600px; margin: 20px auto; }
+        .calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .calendar-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; }
+        .calendar-day { padding: 10px; text-align: center; border: 1px solid #ddd; cursor: pointer; }
+        .calendar-day:hover { background: #f0f0f0; }
+        .calendar-day.today { background: #4CAF50; color: white; }
+        .btn { padding: 10px 20px; margin: 10px; cursor: pointer; }
+        #output { margin-top: 20px; padding: 10px; background: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>Period Tracking Test</h1>
+    
+    <button class="btn" id="test-fab">Test FAB Button</button>
+    <button class="btn" id="test-modal">Test Modal</button>
+    <button class="btn" id="test-calendar">Test Calendar</button>
+    
+    <div id="calendar-container"></div>
+    
+    <div id="output">
+        <h3>Test Output:</h3>
+        <div id="log"></div>
+    </div>
+
+    <script>
+        const log = document.getElementById('log');
+        
+        function addLog(message) {
+            const p = document.createElement('p');
+            p.textContent = `${new Date().toLocaleTimeString()}: ${message}`;
+            log.appendChild(p);
+        }
+        
+        // Test if functions exist
+        document.getElementById('test-fab').addEventListener('click', () => {
+            addLog('Testing FAB button...');
+            if (typeof window.showPeriodEntryModal === 'function') {
+                addLog('✓ showPeriodEntryModal exists');
+                try {
+                    window.showPeriodEntryModal();
+                    addLog('✓ showPeriodEntryModal called successfully');
+                } catch (e) {
+                    addLog('✗ Error calling showPeriodEntryModal: ' + e.message);
+                }
+            } else {
+                addLog('✗ showPeriodEntryModal NOT FOUND');
+            }
+        });
+        
+        document.getElementById('test-modal').addEventListener('click', () => {
+            addLog('Testing modal system...');
+            if (typeof window.app === 'object' && typeof window.app.showModal === 'function') {
+                addLog('✓ window.app.showModal exists');
+                window.app.showModal('<div><h2>Test Modal</h2><p>Modal is working!</p></div>');
+            } else {
+                addLog('✗ window.app.showModal NOT FOUND');
+            }
+        });
+        
+        document.getElementById('test-calendar').addEventListener('click', () => {
+            addLog('Testing calendar functions...');
+            if (typeof createPeriodCalendar === 'function') {
+                addLog('✓ createPeriodCalendar exists');
+            } else {
+                addLog('✗ createPeriodCalendar NOT FOUND');
+            }
+            
+            if (typeof navigateCalendar === 'function') {
+                addLog('✓ navigateCalendar exists');
+            } else {
+                addLog('✗ navigateCalendar NOT FOUND');
+            }
+        });
+        
+        // Check on page load
+        window.addEventListener('load', () => {
+            addLog('Page loaded, checking functions...');
+            addLog('window.showPeriodEntryModal: ' + (typeof window.showPeriodEntryModal));
+            addLog('window.app: ' + (typeof window.app));
+            addLog('window.app.showModal: ' + (typeof window.app?.showModal));
+        });
+    </script>
+    
+    <!-- Load the actual app scripts -->
+    <script src="js/api-service.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/modals.js"></script>
+    <script src="js/data-loader.js"></script>
+    <script src="js/animation-controller.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/screens.js"></script>
+</body>
+</html>

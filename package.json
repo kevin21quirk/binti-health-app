@@ -1,0 +1,49 @@
+{
+  "name": "binti-health-app",
+  "version": "1.0.0",
+  "description": "Binti International Health App - Menstrual health tracking with smart pad integration",
+  "main": "api/index.js",
+  "scripts": {
+    "dev": "node api/index.js",
+    "start": "node api/index.js",
+    "migrate": "node database/migrate.js",
+    "seed": "node database/seed.js",
+    "mobile:init": "npx cap init",
+    "mobile:add:ios": "npx cap add ios",
+    "mobile:add:android": "npx cap add android",
+    "mobile:sync": "npx cap sync",
+    "mobile:open:ios": "npx cap open ios",
+    "mobile:open:android": "npx cap open android",
+    "mobile:build": "npx cap sync && npx cap copy"
+  },
+  "keywords": [
+    "health",
+    "menstrual",
+    "tracking",
+    "pwa",
+    "mobile",
+    "ios",
+    "android"
+  ],
+  "author": "Binti International",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.11.3",
+    "express-validator": "^7.0.1"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^5.5.1",
+    "@capacitor/core": "^5.5.1",
+    "@capacitor/ios": "^5.5.1",
+    "@capacitor/android": "^5.5.1",
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
