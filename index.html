@@ -263,6 +263,19 @@
     <script src="js/settings.js" defer></script>
     <script src="js/help-support.js" defer></script>
     <script>
+        // Emergency failsafe: Hide splash screen after 3 seconds no matter what
+        setTimeout(() => {
+            const splash = document.getElementById('splash-screen');
+            const appContainer = document.getElementById('app-container');
+            if (splash && splash.style.visibility !== 'hidden') {
+                console.log('🚨 Emergency failsafe: Hiding splash screen');
+                splash.style.display = 'none';
+                if (appContainer) {
+                    appContainer.classList.remove('hidden');
+                }
+            }
+        }, 3000);
+        
         // Register Service Worker for PWA functionality
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
